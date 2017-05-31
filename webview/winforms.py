@@ -161,9 +161,12 @@ class BrowserView:
         thread.SetApartmentState(ApartmentState.STA)
         thread.Start()
         thread.Join()
+        print("Thread exited")
 
     def destroy(self):
+        print("Destroying window {0}".format(self.browser.IsDisposed))
         self.browser.Close()
+        print("Destroyed. Is disposed {0}".format(self.browser.IsDisposed))
 
     def get_current_url(self):
         return self.browser.web_browser.Url.AbsoluteUri
