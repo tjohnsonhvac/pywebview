@@ -4,10 +4,12 @@ import sys
 from multiprocessing import Process
 
 
-def destroy_window(webview, delay=3):
+def destroy_window(webview, delay=8):
     def stop():
         time.sleep(delay)
+        print("destroying window")
         webview.destroy_window()
+        print("should be destroyed")
 
         if sys.platform == 'darwin':
             from util_cocoa import mouseMoveRelative
